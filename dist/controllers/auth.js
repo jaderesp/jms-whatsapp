@@ -108,9 +108,10 @@ function decodeQR(page) {
                     return [4 /*yield*/, page.evaluate(function () {
                            
                             /* UPDATE - 25/05/2020: verificar se parou gerar qrcode, e se sim, clicar sobre opção para continuar gerarando novos qrcodes */
-                            if (document.querySelector('._3IKPF') !== null){
+                            if (document.querySelector('.n9gYh') !== null){
+                                console.log('👨‍💻 Regenerando Qrcodes...')
                                 setTimeout(function(){
-                                    document.querySelector('._3IKPF').click();
+                                    document.querySelector('.n9gYh').click();
                                 },1500); /* aguardar 1.5 segundos */                                
                             }
 
