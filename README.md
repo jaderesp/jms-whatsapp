@@ -1,19 +1,19 @@
 <p align="center">
-  <a href="https://github.com/danielcardeenas/sulla">
-    <img width="250px" src="https://github.com/danielcardeenas/sulla/blob/master/img/logo.jpg?raw=true" alt="Sulla logo">
+  <a href="https://github.com/danielcardeenas/jms-whatsapp">
+    <img width="250px" src="https://github.com/danielcardeenas/jms-whatsapp/blob/master/img/logo.jpg?raw=true" alt="jms-whatsapp logo">
   </a>
 </p>
 
-# Sulla
+# jms-whatsapp
 
-[![npm version](https://img.shields.io/npm/v/sulla.svg?color=%2378e08f)](https://www.npmjs.com/package/sulla)
-![npm type definitions](https://img.shields.io/npm/types/sulla)
-![GitHub last commit](https://img.shields.io/github/last-commit/danielcardeenas/sulla)
-[![GitHub license](https://img.shields.io/github/license/danielcardeenas/sulla)](https://github.com/danielcardeenas/sulla/blob/master/LICENSE)
-[![codebeat badge](https://codebeat.co/badges/7e510d47-8689-49da-abd8-a9a29d106a2b)](https://codebeat.co/projects/github-com-danielcardeenas-sulla-master)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fsulla.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fsulla?ref=badge_shield)
+[![npm version](https://img.shields.io/npm/v/jms-whatsapp.svg?color=%2378e08f)](https://www.npmjs.com/package/jms-whatsapp)
+![npm type definitions](https://img.shields.io/npm/types/jms-whatsapp)
+![GitHub last commit](https://img.shields.io/github/last-commit/danielcardeenas/jms-whatsapp)
+[![GitHub license](https://img.shields.io/github/license/danielcardeenas/jms-whatsapp)](https://github.com/danielcardeenas/jms-whatsapp/blob/master/LICENSE)
+[![codebeat badge](https://codebeat.co/badges/7e510d47-8689-49da-abd8-a9a29d106a2b)](https://codebeat.co/projects/github-com-danielcardeenas-jms-whatsapp-master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fjms-whatsapp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fjms-whatsapp?ref=badge_shield)
 
-> Sulla is a javascript library which provides a high-level API control to
+> jms-whatsapp is a javascript library which provides a high-level API control to
 > Whatsapp so it can be configured to automatize resposes or any data that goes
 > trough Whatsapp effortlessly.
 >
@@ -21,7 +21,7 @@
 > based on
 > [this python wrapper](https://github.com/mukulhase/WebWhatsapp-Wrapper)
 >
-> By deafult sulla will try to use Google Chrome driver if installed, if not, it
+> By deafult jms-whatsapp will try to use Google Chrome driver if installed, if not, it
 > will use integrated Chromium instance
 
 #### Changelog:
@@ -42,48 +42,48 @@
 ## Installation
 
 ```bash
-> npm i sulla
+> npm i jms-whatsapp
 ```
 
 ## Getting started
 
 ```javascript
 // Supports ES6
-// import { create, Whatsapp } from 'sulla';
-const sulla = require('sulla');
+// import { create, Whatsapp } from 'jms-whatsapp';
+const jms-whatsapp = require('jms-whatsapp');
 
-sulla.create().then((client) => start(client));
+jms-whatsapp.create().then((client) => start(client));
 
 function start(client) {
   client.onMessage((message) => {
     if (message.body === 'Hi') {
-      client.sendText(message.from, '👋 Hello from sulla!');
+      client.sendText(message.from, '👋 Hello from jms-whatsapp!');
     }
   });
 }
 ```
 
-<img align="left" src="https://github.com/danielcardeenas/sulla/blob/master/img/auth.gif?raw=true" width="370px">
+<img align="left" src="https://github.com/danielcardeenas/jms-whatsapp/blob/master/img/auth.gif?raw=true" width="370px">
 
-##### After executing `create()` function, **sulla** will create an instance of whatsapp web. If you are not logged in, it will print a QR code in the terminal. Scan it with your phone and you are ready to go!
+##### After executing `create()` function, **jms-whatsapp** will create an instance of whatsapp web. If you are not logged in, it will print a QR code in the terminal. Scan it with your phone and you are ready to go!
 
-##### Sulla will remember the session so there is no need to authenticate everytime.
+##### jms-whatsapp will remember the session so there is no need to authenticate everytime.
 
 ##### Multiples sessions can be created at the same time by pasing a session name to `create()` function:
 
 ```javascript
 // Init sales whatsapp bot
-sulla.create('sales').then((salesClient) => {...});
+jms-whatsapp.create('sales').then((salesClient) => {...});
 
 // Init support whatsapp bot
-sulla.create('support').then((supportClient) => {...});
+jms-whatsapp.create('support').then((supportClient) => {...});
 ```
 
 <br>
 
 ## Optional create parameters
 
-Sulla `create()` method third parameter can have the following optional
+jms-whatsapp `create()` method third parameter can have the following optional
 parameters:
 
 ```javascript
@@ -97,7 +97,7 @@ create('sessionName', qrCallback, {
 });
 ```
 
-##### The type definition con be found in here: [CreateConfig.ts](https://github.com/danielcardeenas/sulla/blob/master/src/config/create-config.ts)
+##### The type definition con be found in here: [CreateConfig.ts](https://github.com/danielcardeenas/jms-whatsapp/blob/master/src/config/create-config.ts)
 
 ## Exporting QR code
 
@@ -108,7 +108,7 @@ somewhere else heres how:
 const fs = require('fs');
 
 // Second create() parameter is the QR callback
-sulla.create('session-marketing', (base64Qr, asciiQR) => {
+jms-whatsapp.create('session-marketing', (base64Qr, asciiQR) => {
   // To log the QR in the terminal
   console.log(asciiQR);
 
@@ -158,7 +158,7 @@ available can be found in [here](/src/api/layers) and
 
 ```javascript
 // Send basic text
-await client.sendText(chatId, '👋 Hello from sulla!');
+await client.sendText(chatId, '👋 Hello from jms-whatsapp!');
 
 // Send image
 await client.sendImage(
@@ -177,7 +177,7 @@ await client.sendMentioned(chatId, 'Hello @5218113130740 and @5218243160777!', [
 // Reply to a message
 await client.reply(chatId, 'This is a reply!', message.id.toString());
 
-// Send file (sulla will take care of mime types, just need the path)
+// Send file (jms-whatsapp will take care of mime types, just need the path)
 await client.sendFile(chatId, 'path/to/file.pdf', 'cv.pdf', 'Curriculum');
 
 // Send gif
@@ -294,7 +294,7 @@ await client.getGroupAdmins(groupId);
 await client.setProfileStatus('On vacations! ✈️');
 
 // Set client profile name
-await client.setProfileName('Sulla bot');
+await client.setProfileName('jms-whatsapp bot');
 ```
 
 ### Device functions
@@ -341,7 +341,7 @@ client.onLiveLocation(chatId, (liveLocation) => {
 });
 
 // chatId looks like this: '5518156745634-1516512045@g.us'
-// Event interface is in here: https://github.com/danielcardeenas/sulla/blob/master/src/api/model/participant-event.ts
+// Event interface is in here: https://github.com/danielcardeenas/jms-whatsapp/blob/master/src/api/model/participant-event.ts
 client.onParticipantsChanged(chatId, (event) => {
   ...
 });
@@ -371,7 +371,7 @@ const profile = await client.getNumberProfile('0000000@c.us');
 
 ## Misc
 
-There are some tricks for a better usage of sulla.
+There are some tricks for a better usage of jms-whatsapp.
 
 #### Keep session alive:
 
@@ -382,9 +382,9 @@ There are some tricks for a better usage of sulla.
 client.onStateChange((state) => {
   console.log(state);
   const conflits = [
-    sulla.SocketState.CONFLICT,
-    sulla.SocketState.UNPAIRED,
-    sulla.SocketState.UNLAUNCHED,
+    jms-whatsapp.SocketState.CONFLICT,
+    jms-whatsapp.SocketState.UNPAIRED,
+    jms-whatsapp.SocketState.UNLAUNCHED,
   ];
   if (conflits.includes(state)) {
     client.useHere();
@@ -399,7 +399,7 @@ since this can pretty much could cause a ban from Whatsapp, always keep your
 contacts updated!
 
 ```javascript
-await client.sendMessageToId('5212234234@c.us', 'Hello from sulla! 👋');
+await client.sendMessageToId('5212234234@c.us', 'Hello from jms-whatsapp! 👋');
 ```
 
 #### Multiple sessions
@@ -409,9 +409,9 @@ If you need to run multiple sessions at once just pass a session name to
 
 ```javascript
 async () => {
-  const marketingClient = await sulla.create('marketing');
-  const salesClient = await sulla.create('sales');
-  const supportClient = await sulla.create('support');
+  const marketingClient = await jms-whatsapp.create('marketing');
+  const salesClient = await jms-whatsapp.create('sales');
+  const supportClient = await jms-whatsapp.create('support');
 };
 ```
 
@@ -438,7 +438,7 @@ try {
 
 ## Development
 
-Building sulla is really simple altough it contians 3 main projects inside
+Building jms-whatsapp is really simple altough it contians 3 main projects inside
 
 1. Wapi project
 
@@ -453,10 +453,10 @@ Building sulla is really simple altough it contians 3 main projects inside
 > npm run build:jsQR
 ```
 
-3. Sulla
+3. jms-whatsapp
 
 ```bash
-> npm run build:sulla
+> npm run build:jms-whatsapp
 ```
 
 To build the entire project just run
@@ -465,12 +465,12 @@ To build the entire project just run
 > npm run build
 ```
 
-## Sulla state
+## jms-whatsapp state
 
-As of version `2.3.5` it seems that sulla has reached a very rich and stable
+As of version `2.3.5` it seems that jms-whatsapp has reached a very rich and stable
 functionality and architecture. As much as I would love to, I cannot dedicate a
 lot of time to this project so please consider checking out forked versions of
-sulla where other developers can dedicate more time and support to it.
+jms-whatsapp where other developers can dedicate more time and support to it.
 
 ## Maintainers
 
@@ -484,4 +484,4 @@ discuss what you would like to change.
 
 ## License
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fsulla.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fsulla?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fjms-whatsapp.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielcardeenas%2Fjms-whatsapp?ref=badge_large)
