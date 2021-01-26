@@ -2,7 +2,7 @@
   "name": "jms-whatsapp",
   "version": "2.0.1",
   "description": "Biblioteca de funcionalidades para integração com serviço  de envio e recebimento de mensagens.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
