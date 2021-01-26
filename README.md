@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/danielcardeenas/jms-whatsapp">
-    <img width="250px" src="https://github.com/danielcardeenas/jms-whatsapp/blob/master/img/logo.jpg?raw=true" alt="jms-whatsapp logo">
+####    <img width="250px" src="https://github.com/danielcardeenas/jms-whatsapp/blob/master/img/logo.jpg?raw=true" alt="jms-whatsapp logo">
   </a>
 </p>
 
